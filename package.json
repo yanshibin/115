@@ -8,14 +8,17 @@
     "zip": "cd dist && zip -r ../115-offline-download-assistant.zip .",
     "clean": "rimraf dist 115-offline-download-assistant.zip",
     "prebuild": "npm run clean",
-    "crx": "web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-destiny",
+    "gulp-build": "cross-env NODE_ENV=production gulp publish",
+    "crx": "npm run gulp-build && web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-destiny",
     "release": "gh release create v$npm_package_version artifacts/115-offline-download-assistant-*.zip --title 'Release v$npm_package_version' --notes 'Automated release of version $npm_package_version'"
   },
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "web-ext": "^7.5.0"
+    "web-ext": "^7.5.0",
+    "gulp": "^4.0.2",
+    "cross-env": "^7.0.3"
   },
   "engines": {
     "node": ">=18.0.0"
