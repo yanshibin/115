@@ -8,13 +8,14 @@
     "zip": "cd dist && zip -r ../115-offline-download-assistant.zip .",
     "clean": "rimraf dist 115-offline-download-assistant.zip",
     "prebuild": "npm run clean",
-    "crx": "npx crx pack dist --key=key.pem -o 115-offline-download-assistant.crx"
+    "crx": "npx crx3 pack dist -p key.pem -o 115-offline-download-assistant.crx",
+    "release": "gh release create v$npm_package_version 115-offline-download-assistant.crx --title 'Release v$npm_package_version' --notes 'Automated release of version $npm_package_version'"
   },
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "crx": "^5.0.0"
+    "crx3": "^1.1.0"
   },
   "engines": {
     "node": ">=18.0.0"
