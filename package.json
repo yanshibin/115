@@ -9,7 +9,7 @@
     "clean": "rimraf dist 115-offline-download-assistant.zip",
     "prebuild": "npm run clean",
     "gulp-build": "cross-env NODE_ENV=production gulp publish",
-    "crx": "npm run gulp-build && web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-destiny",
+    "build-crx": "npm run gulp-build && web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-destiny",
     "release": "gh release create v$npm_package_version artifacts/115-offline-download-assistant-*.zip --title 'Release v$npm_package_version' --notes 'Automated release of version $npm_package_version'"
   },
   "author": "Your Name",
