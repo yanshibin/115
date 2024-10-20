@@ -21,19 +21,15 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build extension
-      run: npm run build
+    - name: Build extension using Gulp
+      run: npm run gulp-build
 
-    - name: Generate PEM key
-      run: openssl genrsa -out key.pem 2048
-
-    - name: Create CRX file
-      run: |
-        npx crx pack dist --key=key.pem -o 115-offline-download-assistant.crx
+    - name: Build CRX using web-ext
+      run: npm run build-crx
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: 115-offline-download-assistant
-        path: 115-offline-download-assistant.crx
+        path: artifacts/115-offline-download-assistant-*.zip
         retention-days: 5
