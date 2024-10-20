@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "115网盘离线下载助手",
+  "version": "1.0.3",
+  "description": "快速将磁力链接和选中文字发送到115网盘进行离线下载",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "notifications",
+    "storage",
+    "cookies",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://115.com/*",
+    "http://115.com/*",
+    "https://captchaapi.115.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": "icons/icon48.png",
+    "default_title": "115网盘离线下载"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/download_icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
