@@ -30,6 +30,9 @@ jobs:
     - name: Build extension using Gulp
       run: npm run gulp-build
 
+    - name: Create dist directory
+      run: mkdir -p dist
+
     - name: Copy manifest to dist
       run: cp manifest.json dist/
 
