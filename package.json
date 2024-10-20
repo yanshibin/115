@@ -6,11 +6,14 @@
   "scripts": {
     "build": "mkdir -p dist && cp -R *.js *.html icons manifest.json dist/",
     "zip": "cd dist && zip -r ../115-offline-download-assistant.zip .",
-    "clean": "rm -rf dist 115-offline-download-assistant.zip",
+    "clean": "rimraf dist 115-offline-download-assistant.zip"
     "prebuild": "npm run clean"
   },
   "author": "Your Name",
   "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
   "engines": {
     "node": ">=18.0.0"
   }
