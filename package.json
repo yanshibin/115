@@ -1,0 +1,12 @@
+{
+  "name": "115-offline-download-assistant",
+  "version": "1.0.3",
+  "description": "快速将磁力链接和选中文字发送到115网盘进行离线下载",
+  "main": "background.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp -R *.js *.html icons manifest.json dist/",
+    "zip": "cd dist && zip -r ../115-offline-download-assistant.zip ."
+  },
+  "author": "Claude",
+  "license": "MIT"
+}
