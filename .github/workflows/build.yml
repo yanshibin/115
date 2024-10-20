@@ -28,7 +28,7 @@ jobs:
       run: npm run gulp-build
 
     - name: Build CRX using web-ext
-      run: npm run build-crx
+      run: web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-dest
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
