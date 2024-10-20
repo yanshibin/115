@@ -30,6 +30,9 @@ jobs:
     - name: Build extension using Gulp
       run: npm run gulp-build
 
+    - name: Copy manifest to dist
+      run: cp manifest.json dist/
+
     - name: Build CRX using web-ext
       run: web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-dest
 
