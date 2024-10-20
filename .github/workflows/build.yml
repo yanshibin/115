@@ -37,11 +37,11 @@ jobs:
       run: cp manifest.json dist/
 
     - name: Build CRX using web-ext
-      run: web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-dest
+      run: web-ext build --source-dir=dist --artifacts-dir=artifacts --overwrite-dest --filename=115-offline-download-assistant.zip
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: 115-offline-download-assistant
-        path: artifacts/115-offline-download-assistant-*.zip
+        path: artifacts/115-offline-download-assistant.zip
         retention-days: 5
