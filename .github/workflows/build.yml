@@ -24,6 +24,9 @@ jobs:
     - name: Install missing sass dependency
       run: npm install sass
 
+    - name: Install web-ext globally
+      run: npm install -g web-ext
+
     - name: Build extension using Gulp
       run: npm run gulp-build
 
